@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from my_sql import bring_events, bring_events_providers, bring_notifications, bring_providers, insert_evento_proveedor, insert_events, insert_notification, verification_client
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -181,12 +182,15 @@ def add_notification():
     else:
         return jsonify({"error": response["error"]}), 400    
     
-#if __name__ == '__main__':
-    # Prueba independiente de verification_client
-    #print(verification_client("Carlos Pérez", "carlos.perez@example.com", "1234567890"))
-    #print(verification_client("Ana Gómez", "ana.gomez@example.com", "0987654321"))
-    #print(bring_providers("Alimentación"))
-    #print(insert_events(1,'Cumpleaños de Carlos', '2024-11-15', '15:00', '19:00', '50 hamburguesas, 20 refrescos', 'Globos rojos y azules', '2 autobuses', 'Alquiler del salón fiesta', 'El cliente pidió agregar menú vegetariano', 50))
-    #app.run(debug=True)
+# if __name__ == '__main__':
+#     # Prueba independiente de verification_client
+#     #print(verification_client("Carlos Pérez", "carlos.perez@example.com", "1234567890"))
+#     #print(verification_client("Ana Gómez", "ana.gomez@example.com", "0987654321"))
+#     print(bring_providers("Alimentación"))
+#     #print(insert_events(1,'Cumpleaños de Carlos', '2024-11-15', '15:00', '19:00', '50 hamburguesas, 20 refrescos', 'Globos rojos y azules', '2 autobuses', 'Alquiler del salón fiesta', 'El cliente pidió agregar menú vegetariano', 50))
+#     app.run(debug=True)
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))  # Toma el puerto de entorno, usa 5000 como predeterminado
+    app.run(host='0.0.0.0', port=port)
 
 
