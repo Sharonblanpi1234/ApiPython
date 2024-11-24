@@ -181,12 +181,12 @@ def add_notification():
     else:
         return jsonify({"error": response["error"]}), 400    
     
-if __name__ == '__main__':
+#if __name__ == '__main__':
     # Prueba independiente de verification_client
     #print(verification_client("Carlos Pérez", "carlos.perez@example.com", "1234567890"))
     #print(verification_client("Ana Gómez", "ana.gomez@example.com", "0987654321"))
-    print(bring_providers("Alimentación"))
+    #print(bring_providers("Alimentación"))
     #print(insert_events(1,'Cumpleaños de Carlos', '2024-11-15', '15:00', '19:00', '50 hamburguesas, 20 refrescos', 'Globos rojos y azules', '2 autobuses', 'Alquiler del salón fiesta', 'El cliente pidió agregar menú vegetariano', 50))
-    app.run(debug=True)
+    #app.run(debug=True)
 
 
